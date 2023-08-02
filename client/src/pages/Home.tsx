@@ -64,7 +64,7 @@ const Home: React.FC = () => {
             {searchResults.length > 0 && (
                 <>
                     <Typography sx={{ padding: '15px 15px 10px' }} variant='h6'>We got <strong>{searchResults.length}</strong> results:</Typography>
-                    {searchResults.filter((res) => res.source === 'niebezpiecznik.pl') && (
+                    {searchResults.filter((res) => res.source === 'niebezpiecznik.pl').length > 0 && (
                         <Box className='results-row' sx={{ display: 'flex', gap: '5px', alignItems: 'center', margin: '10px 0' }}>
                             <Typography variant='h5' sx={{ width: '25px', fontSize: '20px', margin: '0 30px' }}>({searchResults.filter((res) => res.source === 'niebezpiecznik.pl').length})</Typography>
                             <Tooltip title={<Typography sx={{ fontSize: '1.5em' }}>Add new articles to the database</Typography>}>
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
                             <span>&#8722; niebezpiecznik.pl</span>
                         </Box>
                     )}
-                    {searchResults.filter((res) => res.source === 'abczdrowie.pl') && (
+                    {searchResults.filter((res) => res.source === 'abczdrowie.pl').length > 0 && (
                         <Box className='results-row' sx={{ display: 'flex', gap: '5px', alignItems: 'center', margin: '10px 0' }}>
                             <Typography variant='h5' sx={{ width: '25px', fontSize: '20px', margin: '0 30px' }}>({searchResults.filter((res) => res.source === 'abczdrowie.pl').length})</Typography>
                             <Tooltip title={<Typography sx={{ fontSize: '1.5em' }}>Add new articles to the database</Typography>}>
@@ -82,7 +82,7 @@ const Home: React.FC = () => {
                             <span>&#8722; abczdrowie.pl</span>
                         </Box>
                     )}
-                    {searchResults.filter((res) => res.source === 'sekurak.pl') && (
+                    {searchResults.filter((res) => res.source === 'sekurak.pl').length > 0 && (
                         <Box className='results-row' sx={{ display: 'flex', gap: '5px', alignItems: 'center', margin: '10px 0' }}>
                             <Typography variant='h5' sx={{ width: '25px', fontSize: '20px', margin: '0 30px' }}>({searchResults.filter((res) => res.source === 'sekurak.pl').length})</Typography>
                             <Tooltip title={<Typography sx={{ fontSize: '1.5em' }}>Add new articles to the database</Typography>}>
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
                             <span>&#8722; sekurak.pl</span>
                         </Box>
                     )}
-                    {searchResults.filter((res) => res.source === 'severe-weather.eu') && (
+                    {searchResults.filter((res) => res.source === 'severe-weather.eu').length > 0 && (
                         <Box className='results-row' sx={{ display: 'flex', gap: '5px', alignItems: 'center', margin: '10px 0' }}>
                             <Typography variant='h5' sx={{ width: '25px', fontSize: '20px', margin: '0 30px' }}>({searchResults.filter((res) => res.source === 'severe-weather.eu').length})</Typography>
                             <Tooltip title={<Typography sx={{ fontSize: '1.5em' }}>Add new articles to the database</Typography>}>
