@@ -24,4 +24,4 @@ This app was build with:\
     - Material-UI\
     - Firebase\
     - Notistack\
-    - Azure Functions\
+    - Azure Functions
