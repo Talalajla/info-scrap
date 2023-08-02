@@ -8,10 +8,10 @@ interface articleData {
     source: string;
 }
 
-export async function scrapFromNiebezpiecznik(query: string, range: number): Promise<any[]> {
+export async function scrapFromSekurak(query: string, range: number): Promise<any[]> {
     let currentPage = 1;
-    const url = `https://niebezpiecznik.pl/page/`;
-    const shortWebsiteName = 'niebezpiecznik.pl';
+    const url = `https://sekurak.pl/page/`;
+    const shortWebsiteName = 'sekurak.pl';
 
     const articlesArray: articleData[] = [];
 
@@ -21,14 +21,14 @@ export async function scrapFromNiebezpiecznik(query: string, range: number): Pro
             const html = response.data;
             let $ = cheerio.load(html);
 
-            $('.post').each((index, element) => {
+            $('article').each((index, element) => {
                 const title = $(element).find('h2 > a').text();
 
                 // Skip article if query does not fit to the title.
                 if (!title.toLowerCase().includes(query.toLowerCase()))
                     return;
 
-                const imageSource = $(element).find('.wp-post-image').attr('src');
+                const imageSource = $(element).find('.onLeft').attr('src');
                 const linkHref = $(element).find('h2 > a').attr('href');
                 const source = shortWebsiteName
 
@@ -40,10 +40,10 @@ export async function scrapFromNiebezpiecznik(query: string, range: number): Pro
                 });
             });
 
-            const goNextPageBtn = $('div.left a');
+            const goNextPageBtn = $('a.nextpostslink');
 
             // Stop loop if "go to next page" button is disabled.
-            if (!goNextPageBtn && !goNextPageBtn.text().includes('starsze')) {
+            if (!goNextPageBtn && !goNextPageBtn.text().includes('»')) {
                 break;
             }
             currentPage++;

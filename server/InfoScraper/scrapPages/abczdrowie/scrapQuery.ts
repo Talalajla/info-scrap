@@ -5,11 +5,13 @@ interface articleData {
     title: string;
     imageSource: string;
     linkHref: string;
+    source: string;
 }
 
 export async function scrapFromABCZdrowie(query: string, range: number): Promise<any[]> {
     let currentPage = 1;
     const url = `https://portal.abczdrowie.pl/szukaj?q=${query}&page=`;
+    const shortWebsiteName = 'abczdrowie.pl';
 
     const articlesArray: articleData[] = [];
 
@@ -28,11 +30,13 @@ export async function scrapFromABCZdrowie(query: string, range: number): Promise
 
                 const imageSource = $(element).find('.results__unit__image > img').attr('data-src');
                 const linkHref = $(element).find('a').attr('href');
+                const source = shortWebsiteName
 
                 articlesArray.push({
+                    source,
                     title,
                     imageSource,
-                    linkHref
+                    linkHref,
                 });
             });
 
