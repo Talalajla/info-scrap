@@ -18,10 +18,10 @@ To use the app you need to download files and install and run npm packages. You 
 ### `npm run start`
 
 ## Technologies used
-This app was build with: 
-    - React
-    - TypeScript
-    - Material-UI
-    - Firebase
-    - Notistack
-    - Azure Functions
+This app was build with:\
+    - React\
+    - TypeScript\
+    - Material-UI\
+    - Firebase\
+    - Notistack\
+    - Azure Functions\
